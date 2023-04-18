@@ -193,5 +193,6 @@ configurasi httpd.conf.
 ```
 > Berikut adalah tampilan untuk menambahkan barang
 <img src="./ss/sss.png" style="margin: auto; width:500px;">
+
 > Berikut adalah tampilan pada menu home setelah ditambahkan MacBook Pro.
 <img src="./ss/ssss.png" style="margin: auto; width:500px;">
