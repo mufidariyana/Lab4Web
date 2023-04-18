@@ -141,6 +141,57 @@ $no = 1;
 <div style="text-align:center;">
   <?php require('footer.php'); ?>
 </div>
-```
+
 > Akan muncul tampilan seperti gambar dibawah ini
-<img src="./ss/ss.png" style="margin: auto; width:400px;">
+<img src="./ss/ss.png" style="margin: auto; width:500px;">
+
+> Membuat file baru dengan nama about.php
+```
+<?php require('header.php'); ?>
+<div class="content">
+    <h2>Ini Halaman About</h2>
+    <p>Ini adalah bagian content dari halaman.</p>
+</div>
+<?php require('footer.php'); ?>
+```
+> Berikut adalah tampilan dari about.php
+<img src="./ss/sssss.png" style="margin: auto; width:500px;">
+
+### Membuat routing 
+> Dengan menambahkan file baru yaitu index.php. Routing digunakan untuk mempermudah akses halaman web agar SEO Friendly.
+```
+<?php
+
+$mod = @$_REQUEST['mod'];
+
+switch ($mod) {
+    case "home":
+        require("home.php");
+        break;
+    case "tambah":
+        require("tambah.php");
+        break;
+    default:
+        require("home.php");
+}
+?>
+```
+### Aktivasi mod_rewrite
+>Mod_rewrite digunakan untuk mengubah URL dari query string menjadi SEO Friendly.
+Langkah awal yang harus disiapkan adalah aktivasi mod_rewrite pada webserver Apache2 pada
+configurasi httpd.conf.
+> Selanjutnya membuat file .htaccess
+```
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /LAB4_PHP_MODULAR/
+
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php?mod=$1 [L]
+</IfModule>
+```
+> Berikut adalah tampilan untuk menambahkan barang
+<img src="./ss/sss.png" style="margin: auto; width:500px;">
+> Berikut adalah tampilan pada menu setelah ditambahkan MacBook Pro.
+<img src="./ss/ssss.png" style="margin: auto; width:500px;">
